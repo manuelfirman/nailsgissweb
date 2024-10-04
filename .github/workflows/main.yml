@@ -1,0 +1,28 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches:
+      - main  # Ajusta si quieres otra rama
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install  # Solo si tienes un proyecto con Node.js
+
+    - name: Build project
+      run: npm run build  # Solo si tu proyecto necesita ser construido
+
+    - name: Sync S3 bucket
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+        aws s3 sync ./dist s3://nailsgiss-bucket --delete
+      # Reemplaza "./dist" con la carpeta que contiene los archivos estáticos y "your-bucket-name" con el nombre de tu bucket
