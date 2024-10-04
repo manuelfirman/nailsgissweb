@@ -7,8 +7,8 @@ html {
 }
 
 body {
-  background-color: #000000;
-  color: #fff;
+  background-color: #fff;
+  color: #000000;
 }
 
 ::selection {
@@ -33,6 +33,10 @@ body {
 .slider-horizontal {
   display: flex;
   animation: swipe 5000ms linear infinite backwards;
+}
+
+.filter {
+  filter: hue-rotate(170deg) saturate(3); 
 }
 
 @keyframes swipe {
