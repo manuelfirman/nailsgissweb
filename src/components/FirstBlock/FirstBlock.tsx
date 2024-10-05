@@ -7,7 +7,6 @@ import { Reveal } from "../Reveal"
 
 
 export function FirstBlock() {
-    const imgUrl = `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/assets/placeholder.png`
     return (
         <div className="relative p-4 md:py-40">
             <BackgroundRadialRight />
@@ -32,7 +31,7 @@ export function FirstBlock() {
                     </Reveal>
                 </div>
                 <MotionTransition className="flex items-center justify-center">
-                    <Image src={imgUrl} alt="Card" width={450} height={450} className="h-auto w-72 md:w-full" />
+                    <Image src="/assets/placeholder.png" alt="Card" width={450} height={450} className="h-auto w-72 md:w-full" />
                 </MotionTransition>
             </div>
         </div>
