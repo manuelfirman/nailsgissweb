@@ -9,12 +9,12 @@ import { MotionTransition } from "../MotionTransition/"
 
 export function Header() {
     const [openMobileMenu, setOpenMobileMenu] = useState(false)
-
+    const imgUrl = `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/assets/logoletras.png`
     return (
         <MotionTransition>
             <nav className="flex flex-wrap items-center justify-between max-w-5xl p-4 mx-auto md:py-8">
                 <Link href="/" className="flex items-center">
-                    <Image src="/assets/logoletras.png" width="80" height="40" alt="Logo" />
+                    <Image src={imgUrl} width="80" height="40" alt="Logo" />
                 </Link>
                 <RiMenu3Line className="block text-3xl md:hidden cursor-pointer" onClick={() => setOpenMobileMenu(!openMobileMenu)} />
                 <div className={`${openMobileMenu ? 'block' : 'hidden'} w-full md:block md:w-auto`}>

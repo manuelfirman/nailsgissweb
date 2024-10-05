@@ -7,6 +7,7 @@ import { Reveal } from '@/components/Reveal'
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules'
 
 export function Slide() {
+    const imgUrl = `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/assets/testimonial-icon.png`
     return (
         <Swiper
             breakpoints={{
@@ -29,7 +30,7 @@ export function Slide() {
             {dataTestimonials.map(({ id, name, work, testimonial, image }) => (
                 <SwiperSlide key={id} className="my-5 cursor-pointer md:px-10">
                     <Reveal>
-                        <Image src="/assets/testimonial-icon.png" alt="Testimonial" width={50} height={50} className="w-auto h-auto" />
+                        <Image src={imgUrl} alt="Testimonial" width={50} height={50} className="w-auto h-auto" />
                         <div className="my-5">
                             {testimonial}
                         </div>
